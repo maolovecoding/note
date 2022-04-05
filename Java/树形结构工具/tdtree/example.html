@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+	<title>Destroydrop &raquo; Javascripts &raquo; Tree</title>
+
+	<link rel="StyleSheet" href="dtree.css" type="text/css" />
+	<script type="text/javascript" src="dtree.js"></script>
+
+</head>
+
+<body>
+<form name="tdtreeForm">
+
+<h1><a href="/">Destroydrop</a> &raquo; <a href="/javascripts/">Javascripts</a> &raquo; <a href="/javascripts/tree/">Tree</a></h1>
+<h2>tdTree by tony</h2>
+
+<div style="font-family:微软雅黑;font-size:12px;color:green;border:1px;padding:5px;">
+	支持多种树形结构：
+	<li>dtree树</li>
+	<li>tdtree 单选树</li>
+	<li>tdtree 多选 非关联树</li>
+	<li>tdtree 多选 关联树</li>
+</div>
+
+<div class="dtree">
+	<p><a href="javascript: d.openAll();">open all</a> | <a href="javascript: d.closeAll();">close all</a></p>
+
+<script language="javascript">
+	//d = new dTree("d",".");		//原始树
+	//d = new dTree("d",".","radio","deptId",true,"radio");						//单选树
+	//d = new dTree("d",".","tdtreeForm","deptId",true,"checkbox");				//多选 非关联树
+	d = new dTree("d",".","tdtreeForm","deptId",true,'relationck');				//多选 关联树
+
+	d.add('0402','-1','集体公司');
+	d.add('040201','0402','财务部','javascript:gotoUrl("blockcode=040201&blocktype=6");');
+
+	d.add('04020101','040201','财务','javascript:gotoUrl("blockcode=040201&blocktype=6");');
+	d.add('04020102','040201','社保','javascript:gotoUrl("blockcode=040201&blocktype=6");');
+
+
+	d.add('040202','0402','人事部','javascript:gotoUrl("blockcode=040202&blocktype=6");');
+
+	d.add('04020101','040202','劳保','javascript:gotoUrl("blockcode=040201&blocktype=6");');
+	d.add('04020102','040202','人事','javascript:gotoUrl("blockcode=040201&blocktype=6");');
+
+
+	document.write(d);
+
+</script>
+
+
+	<script type="text/javascript">
+		function submitForm( inputName, boxType ){
+			var ids = "";
+			var form = document.getElementById("tdtreeForm");
+			for (var i=0; i<form.elements.length; i++) {
+				var element = form.elements[i];
+				if (element.name == inputName && element.type==boxType){
+					if( element.checked == true ){
+						//alert("id=" + element.id +"\r\n" + "name=" + element.name + "\r\n" + "value="+element.value);
+						ids = ids + element.value + ",";
+					}
+				}
+			}		
+			alert("ids = " + ids);
+	
+		}
+	</script>
+ 
+	<input type="button" value="多选--获得选中的id" onClick="submitForm('deptId','checkbox')"/>
+
+
+
+</div>
+
+<p><a href="mailto&#58;drop&#64;destroydrop&#46;com">&copy;2002-2003 Geir Landr&ouml;</a></p>
+
+
+
+
+</form>
+</body>
+
+</html>

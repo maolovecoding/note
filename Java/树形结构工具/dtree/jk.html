@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+
+<head>
+	<title>Destroydrop &raquo; Javascripts &raquo; Tree</title>
+
+	<script type="text/javascript" src="dtree.js"></script>
+
+</head>
+
+<body>
+
+<h1><a href="/">Destroydrop</a> &raquo; <a href="/javascripts/">Javascripts</a> &raquo; <a href="/javascripts/tree/">Tree</a></h1>
+
+<h2>组织机构</h2>
+
+<div class="dtree">
+
+	<p><a href="javascript: d.openAll();">展开</a> | <a href="javascript: d.closeAll();">收缩</a></p>
+
+	<script type="text/javascript">
+		<!--
+		
+		d = new dTree('d','');
+
+d.add('01','-1',"数据字典","");
+
+d.add('0101','01',"生产厂家","#");
+
+d.add('010101','0101',"火翼厂","#");
+d.add('010102','0101',"水厂","#");
+
+
+
+d.add('0102','01',"用户级别","#");
+
+d.add('010201','0102',"CEO","#");
+d.add('010202','0102',"CTO","#");
+d.add('010203','0102',"COO","#");
+
+document.write(d);
+
+
+
+		//-->
+	</script>
+
+</div>
+
+
+</body>
+
+</html>
